@@ -477,7 +477,7 @@ def plot_swarm(selected_player, position_cat):
         hue='position_cat', size=8, alpha=0.7, ax=ax
     )
 
-    ax.axhline(y=0, color='black', linestyle='--', linewidth=1.25, alpha=0.2)
+    ax.axhline(y=0, color='black', linestyle='--', linewidth=1.25, alpha=0.4)
 
     # highlight selected player as gold dot — no label
     sel_row = pos_data[pos_data['player'] == selected_player]
@@ -485,6 +485,9 @@ def plot_swarm(selected_player, position_cat):
         sel_z = sel_row['season_z'].values[0]
         ax.scatter(0, sel_z, s=200, color='gold',
                    edgecolors='black', linewidth=2, zorder=10)
+
+
+    ax.set_ylim(-1.5,1.5)
 
     ax.tick_params(axis='x', labelsize=11)
     ax.tick_params(axis='y', labelsize=10)

@@ -268,7 +268,7 @@ def closest_players_html(player_name, player_z, position_cat):
             f"Z: {r['season_z']:+.3f} &nbsp;&middot;&nbsp; "
             f"&Delta; {r['z_dist']:.3f}</div></div>"
         )
-    header = f"<div class='section-hdr'>Players With Most Similar Fluidity Profiles in{position_cat.upper()}</div>"
+    header = f"<div class='section-hdr'>Players With Most Similar Fluidity Profiles in {position_cat.upper()}</div>"
     return f"<div style='margin-top:0.5rem'>{header}{cards}</div>"
 # ══════════════════════════════════════════════════════════════
 # PLOT FUNCTIONS

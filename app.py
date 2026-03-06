@@ -355,7 +355,7 @@ def plot_line(selected_team):
     fig, ax = plt.subplots(figsize=(8, 6))
     ax.plot(x, scores, color=colour, linewidth=1.8, marker='o', markersize=4, zorder=3)
     ax.axhline(season_mean, color='red',   linewidth=1.5, linestyle='--', label='Team Average', zorder=2)
-    ax.axhline(0,           color='black', linewidth=1.2, linestyle='--', alpha=0.2, label='League Average', zorder=1)
+    ax.axhline(0,           color='black', linewidth=1.5, linestyle='--', alpha=0.4, label='League Average', zorder=1)
 
     ax.set_xlabel('Match Number', fontsize=10, fontweight='bold')
     ax.set_ylabel('Fluidity Z-Score', fontsize=10, fontweight='bold')

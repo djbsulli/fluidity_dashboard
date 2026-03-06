@@ -142,10 +142,10 @@ LABEL_OFFSETS = {
 # ══════════════════════════════════════════════════════════════
 @st.cache_data
 def load_data():
-    atf  = pd.read_csv('data/avg_team_fluidity.csv')
-    tff  = pd.read_csv('data/team_fluidity_full.csv')
-    sps  = pd.read_csv('data/season_player_stats.csv')
-    vt   = pd.read_csv('data/valid_touches.csv')
+    atf  = pd.read_csv('avg_team_fluidity.csv')
+    tff  = pd.read_csv('team_fluidity_full.csv')
+    sps  = pd.read_csv('season_player_stats.csv')
+    vt   = pd.read_csv('valid_touches.csv')
     return atf, tff, sps, vt
 
 avg_team_fluidity, team_fluidity_full, season_player_stats, valid_touches = load_data()

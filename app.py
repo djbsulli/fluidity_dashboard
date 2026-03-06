@@ -34,7 +34,6 @@ st.set_page_config(
 
 # ── CSS ───────────────────────────────────────────────────────
 st.markdown("""
-st.markdown("""
 <style>
 [data-testid="collapsedControl"] { display: block !important; }
 </style>

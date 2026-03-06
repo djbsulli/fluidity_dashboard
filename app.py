@@ -347,14 +347,12 @@ def plot_line(selected_team):
     team_data = (team_fluidity_full[team_fluidity_full['team'] == selected_team]
                  .sort_values('match_id').reset_index(drop=True))
 
-    colour      = TEAM_COLOURS.get(selected_team, '#2563eb')
+    colour      = 'steelblue'
     season_mean = team_data['season_overall_z'].iloc[0]
     scores      = team_data['overall_z'].values
     x           = np.arange(len(scores))
 
     fig, ax = plt.subplots(figsize=(8, 6))
-    ax.fill_between(x, scores, 0, where=scores >= 0, alpha=0.15, color='#16a34a', interpolate=True)
-    ax.fill_between(x, scores, 0, where=scores <  0, alpha=0.15, color='#dc2626', interpolate=True)
     ax.plot(x, scores, color=colour, linewidth=1.8, marker='o', markersize=4, zorder=3)
     ax.axhline(season_mean, color='red',   linewidth=1.5, linestyle='--', label='Team Average', zorder=2)
     ax.axhline(0,           color='black', linewidth=1.2, linestyle='--', alpha=0.2, label='League Average', zorder=1)

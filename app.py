@@ -600,7 +600,7 @@ with col_t:
     plt.close('all')
 
 with col_s:
-    st.markdown("<div class='section-hdr'>POSITION DISTRIBUTION</div>", unsafe_allow_html=True)
+    st.markdown("<div class='section-hdr'>Ranking within Position Category</div>", unsafe_allow_html=True)
     st.pyplot(plot_swarm(selected_player, selected_position))
     plt.close('all')
 

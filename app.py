@@ -537,7 +537,7 @@ st.markdown("<div class='dash-sub'>2015-2016 PREMIER LEAGUE SEASON </div>",
 col_sel1, col_sel2 = st.columns(2)
 with col_sel1:
     selected_team = st.selectbox(
-        "🏟️ Select Team",
+        "SELECT TEAM",
         options=sorted(avg_team_fluidity['team'].unique())
     )
 
@@ -552,7 +552,7 @@ player_options = [
 player_labels = [p[0] for p in player_options]
 
 with col_sel2:
-    selected_label = st.selectbox("👤 Select Player", options=player_labels)
+    selected_label = st.selectbox("SELECT PLAYER", options=player_labels)
 
 selected_idx      = player_labels.index(selected_label)
 selected_player   = player_options[selected_idx][1]

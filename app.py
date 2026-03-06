@@ -498,6 +498,9 @@ def plot_swarm(selected_player, position_cat):
     if legend:
         legend.remove()
 
+    ax.set_xlabel('')
+    ax.set_xticklabels([])
+
     plt.tight_layout()
     return fig
 

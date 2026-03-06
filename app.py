@@ -422,7 +422,7 @@ def plot_zone_bar(selected_team):
     ax.set_xticks(x)
     ax.set_xticklabels(zones, fontsize=10, fontweight='bold')
     ax.set_ylabel('Average Z-Score', fontsize=10, fontweight='bold')
-    ax.set_title('Zone Fluidity vs League Average', fontsize=11, fontweight='bold', pad=8)
+    ax.set_title(' Team Zonal Fluidity vs League Averages', fontsize=11, fontweight='bold', pad=8)
     ax.legend(fontsize=9, frameon=False)
     ax.grid(axis='y', alpha=0.25, zorder=0)
     plt.tight_layout()
@@ -571,7 +571,6 @@ with col_space:
     <div style='padding:1rem;background:#f8f9fa;border:1px solid #e0e0e0;
                 border-radius:8px;font-size:0.85rem;color:#555;line-height:1.7;
                 margin-top:0.5rem;'>
-    <b>Zonal Interpretation</b><br>
     Positive Z = More positional variance than league average.<br><br>
     Negative Z = Less positional fluidity than league average.<br><br>
     <b>Defensive</b> — Centre backs &amp; full-backs<br>

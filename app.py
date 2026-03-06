@@ -36,8 +36,6 @@ st.set_page_config(
 st.markdown("""
 <style>
 [data-testid="collapsedControl"] {{ display: block !important; }}
-</style>
-""", unsafe_allow_html=True)
 .dash-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.6rem; letter-spacing: 5px;
@@ -71,7 +69,6 @@ st.markdown("""
 .mv-pos  { color:#16a34a; }
 .mv-neg  { color:#dc2626; }
 .mv-blue { color:#2563eb; }
-
 .team-bar  { width:5px; height:44px; border-radius:3px; display:inline-block; }
 .team-name { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:3px; }
 .qbadge {
@@ -85,7 +82,6 @@ st.markdown("""
 }
 .zone-label { font-size:0.7rem; color:#777; letter-spacing:2px; text-transform:uppercase; }
 .zone-val   { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; }
-
 .pcard {
     background:#fff; border:1px solid #e0e0e0;
     border-left:3px solid #2563eb; border-radius:7px;
@@ -94,13 +90,11 @@ st.markdown("""
 }
 .pcard-name { font-size:0.86rem; font-weight:600; color:#1a1a2e; }
 .pcard-meta { font-size:0.7rem; color:#888; margin-top:0.1rem; }
-
 #MainMenu, footer, header { visibility:hidden; }
 .block-container { padding-top:1.2rem; padding-bottom:2rem; }
-div[data-testid="stHorizontalBlock"] { gap: 1rem; }
+div[data-testid="stHorizontalBlock"] {{ gap: 1rem; }}
 </style>
 """, unsafe_allow_html=True)
-
 # ══════════════════════════════════════════════════════════════
 # CONSTANTS  (from notebook cell 40)
 # ══════════════════════════════════════════════════════════════

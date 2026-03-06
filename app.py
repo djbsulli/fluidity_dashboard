@@ -400,7 +400,7 @@ def plot_zone_bar(selected_team):
 
     # league average as a dot/marker per zone
     for i, zone in enumerate(zones):
-         ax.plot(i, league_avg[zone], marker='D', markersize=9,
+        ax.plot(i, league_avg[zone], marker='D', markersize=9,
                 color='black', zorder=5,
                 label='Zonal League Average' if i == 0 else '')
         ax.plot([i - 0.28, i + 0.28], [league_avg[zone], league_avg[zone]],

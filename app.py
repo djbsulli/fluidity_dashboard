@@ -343,7 +343,7 @@ def plot_line(selected_team):
     colour      = 'steelblue'
     season_mean = team_data['season_overall_z'].iloc[0]
     scores      = team_data['overall_z'].values
-    x = np.arange(1, len(scores) + 1)))
+     x = np.arange(1, len(scores) + 1)
 
     fig, ax = plt.subplots(figsize=(8, 6))
     ax.plot(x, scores, color=colour, linewidth=1.8, marker='o', markersize=4, zorder=3)
@@ -357,7 +357,7 @@ def plot_line(selected_team):
     ax.legend(fontsize=9, frameon=False)
 
     ax.set_ylim(-2, 2)
-    ax.set_xlim(0,38)
+    ax.set_xlim(1,38)
     plt.tight_layout()
     return fig
 

@@ -570,13 +570,13 @@ with st.expander("ℹ️ How are fluidity scores calculated?"):
     The season-level fluidity scores are an aggregation of all match fluidity scores per player/position. Players appear multiple times when meeting the touch/match thresholds in multiple positions
 
     **Team-Level Fluidity Scores**  
-    Each match, a team's fluidity score is the mean of the z scores of all qualifiying players. For each team, only matches in which they had at least 8 threshold meeting players are included in the seasonal average
-    The consistency STD z-score measures the standard deviation of a team's match-by-match fluidity
-    scores, which is then z-scored across all 20 league teams for an overall measure of team fluidity consistency
+    Each match, a team's fluidity score is the mean of the z scores of all qualifiying players. Including only matches in which the team had at least 8 threshold meeting outfield players,
+    the seasonal average of match scores is calculated, and then re-scored for a season-level fluidity score/rank.
+    A Z-scored value of the standard deviation of the team's match scores is also included as a measure of tactical consistency relating to fluidity.
 
     **Zone Scores**  
-    Defensive, midfield and forward zone averages are the mean of player z-scores within 
-    positional zones (defense, midfield, attack), aggregated to season level per team.
+    Defensive, midfield and forward zone seasonal z-scores are calculated for each team, by aggregating and re z-scoring all distinct match fluidity scores for players
+    in each positional zone
     """)
 
 # ══════════════════════════════════════════════════════════════

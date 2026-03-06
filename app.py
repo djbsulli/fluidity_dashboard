@@ -455,7 +455,7 @@ def plot_touch_map(player_id, player_name, position_cat):
         (season_player_stats['position_cat'] == position_cat)
     ]['season_z'].values[0]
 
-    ax.set_title(f'{short_name(player_name)} | z = {player_z:.2f}',
+    ax.set_title(f'{short_name(player_name)} | z = {player_z:.3f}',
                  fontsize=12, fontweight='bold', pad=4)
     plt.tight_layout()
     return fig

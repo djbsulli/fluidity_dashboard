@@ -584,17 +584,17 @@ with col_bar:
     plt.close('all')
 with col_space:
     st.markdown("""
-    <div style='padding:1rem;background:#f8f9fa;border:1px solid #e0e0e0;
-                border-radius:8px;font-size:0.85rem;color:#555;line-height:1.7;
+    <div style='padding:1.2rem 1.4rem;background:#f8f9fa;border:1px solid #e0e0e0;
+                border-radius:8px;font-size:1rem;color:#555;line-height:2;
                 margin-top:0.5rem;'>
-    Positive Z = More positional variance than league average.<br><br>
+    <b>Zonal Interpretation</b><br>
+    Positive Z = More positional variance than league average.<br>
     Negative Z = Less positional fluidity than league average.<br><br>
-    <b>Defensive</b> — centre backs &amp; full-backs<br>
-    <b>Midfield</b> — central, attacking, defensive &amp; wide midfielders<br>
-    <b>Forward</b> — strikers &amp; wide forwards
+    <b>Defensive</b> — Centre backs &amp; full-backs<br>
+    <b>Midfield</b> — Central, attacking, defensive &amp; wide midfielders<br>
+    <b>Forward</b> — Strikers &amp; wide forwards
     </div>
     """, unsafe_allow_html=True)
-
 # ══════════════════════════════════════════════════════════════
 # SECTION 2 — PLAYER VIEW
 # ══════════════════════════════════════════════════════════════

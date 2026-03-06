@@ -356,8 +356,7 @@ def plot_line(selected_team):
     ax.grid(axis='y', alpha=0.3)
     ax.legend(fontsize=9, frameon=False)
 
-    y_abs_max = max(abs(scores.min()), abs(scores.max())) * 1.15
-    ax.set_ylim(-y_abs_max, y_abs_max)
+    ax.set_ylim(-2, 2)
     plt.tight_layout()
     return fig
 

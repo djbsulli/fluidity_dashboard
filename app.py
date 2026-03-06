@@ -489,9 +489,6 @@ def plot_swarm(selected_player, position_cat):
 
     ax.set_ylim(-1.5,1.5)
 
-    ax.tick_params(axis='x', labelsize=11)
-    ax.tick_params(axis='y', labelsize=10)
-    ax.set_xlabel('Position Category', fontsize=11, fontweight='bold')
     ax.set_ylabel('Fluidity Z-Score',  fontsize=11, fontweight='bold')
     ax.set_title(f'{position_cat} — Fluidity Z Scores',
                  fontsize=12, fontweight='bold')

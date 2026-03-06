@@ -268,7 +268,7 @@ def closest_players_html(player_name, player_z, position_cat):
             f"Z: {r['season_z']:+.3f} &nbsp;&middot;&nbsp; "
             f"&Delta; {r['z_dist']:.3f}</div></div>"
         )
-    header = f"<div class='section-hdr'>3 CLOSEST IN {position_cat.upper()}</div>"
+    header = f"<div class='section-hdr'>Players With Most Similar Fluidity Profiles in{position_cat.upper()}</div>"
     return f"<div style='margin-top:0.5rem'>{header}{cards}</div>"
 # ══════════════════════════════════════════════════════════════
 # PLOT FUNCTIONS
@@ -569,6 +569,7 @@ with col_space:
                 margin-top:0.5rem;'>
     <b>Zonal Interpretation</b><br>
     Positive Z = More positional variance than league average.<br><br>
+    Negative Z = Less positional fluidity than league average.<br><br>
     <b>Defensive</b> — Centre backs &amp; full-backs<br>
     <b>Midfield</b> — Central, attacking, defensive &amp; wide midfield<br>
     <b>Forward</b> — Strikers &amp; wide forwards

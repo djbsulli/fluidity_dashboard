@@ -400,9 +400,9 @@ def plot_zone_bar(selected_team):
 
     # league average as a dot/marker per zone
     for i, zone in enumerate(zones):
-        ax.plot(i, league_avg[zone], marker='D', markersize=9,
+         ax.plot(i, league_avg[zone], marker='D', markersize=9,
                 color='black', zorder=5,
-                label='League Avg' if i == 0 else '')
+                label='Zonal League Average' if i == 0 else '')
         ax.plot([i - 0.28, i + 0.28], [league_avg[zone], league_avg[zone]],
                 color='black', linewidth=2, zorder=4)
 
@@ -567,10 +567,10 @@ with col_space:
     <div style='padding:1rem;background:#f8f9fa;border:1px solid #e0e0e0;
                 border-radius:8px;font-size:0.85rem;color:#555;line-height:1.7;
                 margin-top:0.5rem;'>
-    <b>Zone interpretation</b><br>
-    Positive Z → more positional variance than the league average for that zone.<br><br>
+    <b>Zonal Interpretation</b><br>
+    Positive Z = More positional variance than league average.<br><br>
     <b>Defensive</b> — Centre backs &amp; full-backs<br>
-    <b>Midfield</b> — Central, attacking &amp; wide midfield<br>
+    <b>Midfield</b> — Central, attacking, defensive &amp; wide midfield<br>
     <b>Forward</b> — Strikers &amp; wide forwards
     </div>
     """, unsafe_allow_html=True)

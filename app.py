@@ -560,29 +560,25 @@ selected_position = player_options[selected_idx][2]
 
 with st.expander("ℹ️ How are fluidity scores calculated?"):
     st.markdown("""
-    **Player-Level Z-Score**  
-    For each qualifying appearance (15+ touches in a single position), a player's 
-    positional variance is calculated as the product of their standard deviation in 
-    x and y touch coordinates. This is then z-scored **within position category** — 
-    so a striker is only compared to other strikers, a centre-back to other centre-backs. 
-    A positive z-score means the player covered more varied positions than the average 
-    player in that role. The season z-score is the mean of all qualifying appearance scores.
+    **Player-Level Fluidity Scores (match)**  
+    For each individual match, a player's match-level positional variance is calculated as the product of their standard deviation in 
+    x and y touch coordinates (using open play touches only to avoid set piece skew). This is then z-score standardised (measuring how many standard deviations the value is from the mean) **within position category** — 
+    to determine how fluid a player's profile is compared to the league average for their position. Only outfield players are used, and all player's required a minimum
+    of 15 open play touches to be considered in match analysis.
 
-    **Qualifying Threshold**  
-    Players must record 15+ touches in a position in at least 8 matches to be included 
-    in the season averages. This ensures scores reflect a genuine positional role rather 
-    than occasional appearances.
+    ** Player-Level Fluidity Scores (Season)**  
+    The season-level fluidity scores are an aggregation of all match fluidity scores per player/position. Players appear multiple times when meeting the touch/match thresholds in multiple positions
 
-    **Team-Level Z-Score**  
-    Each match, a team's fluidity score is the mean of all qualifying player z-scores 
-    in that match. Only matches with 8+ tracked players are included in season averages. 
-    The consistency STD z-score measures the standard deviation of a team's match-by-match 
-    scores, then z-scores that across all teams — negative means more consistent than average.
+    **Team-Level Fluidity Scores**  
+    Each match, a team's fluidity score is the mean of the z scores of all qualifiying players. For each team, only matches in which they had at least 8 threshold meeting players are included in the seasonal average
+    The consistency STD z-score measures the standard deviation of a team's match-by-match fluidity
+    scores, which is then z-scored across all 20 league teams for an overall measure of team fluidity consistency
 
     **Zone Scores**  
     Defensive, midfield and forward zone averages are the mean of player z-scores within 
-    that positional zone per match, aggregated to season level.
+    positional zones (defense, midfield, attack), aggregated to season level per team.
     """)
+
 # ══════════════════════════════════════════════════════════════
 # SECTION 1 — TEAM VIEW
 # ══════════════════════════════════════════════════════════════

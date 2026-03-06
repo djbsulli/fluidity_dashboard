@@ -557,6 +557,32 @@ with col_sel2:
 selected_idx      = player_labels.index(selected_label)
 selected_player   = player_options[selected_idx][1]
 selected_position = player_options[selected_idx][2]
+
+with st.expander("ℹ️ How are fluidity scores calculated?"):
+    st.markdown("""
+    **Player-Level Z-Score**  
+    For each qualifying appearance (15+ touches in a single position), a player's 
+    positional variance is calculated as the product of their standard deviation in 
+    x and y touch coordinates. This is then z-scored **within position category** — 
+    so a striker is only compared to other strikers, a centre-back to other centre-backs. 
+    A positive z-score means the player covered more varied positions than the average 
+    player in that role. The season z-score is the mean of all qualifying appearance scores.
+
+    **Qualifying Threshold**  
+    Players must record 15+ touches in a position in at least 8 matches to be included 
+    in the season averages. This ensures scores reflect a genuine positional role rather 
+    than occasional appearances.
+
+    **Team-Level Z-Score**  
+    Each match, a team's fluidity score is the mean of all qualifying player z-scores 
+    in that match. Only matches with 8+ tracked players are included in season averages. 
+    The consistency STD z-score measures the standard deviation of a team's match-by-match 
+    scores, then z-scores that across all teams — negative means more consistent than average.
+
+    **Zone Scores**  
+    Defensive, midfield and forward zone averages are the mean of player z-scores within 
+    that positional zone per match, aggregated to season level.
+    """)
 # ══════════════════════════════════════════════════════════════
 # SECTION 1 — TEAM VIEW
 # ══════════════════════════════════════════════════════════════

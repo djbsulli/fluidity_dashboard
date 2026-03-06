@@ -407,7 +407,7 @@ def plot_zone_bar(selected_team):
                 color='black', linewidth=2, zorder=4)
 
     # value labels on bars
-     for bar, zone in zip(bars, zones):
+    for bar, zone in zip(bars, zones):
         h = bar.get_height()
         # position label above bar if positive, below if negative
         y_pos = h + 0.003 if h >= 0 else h - 0.003

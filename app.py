@@ -261,21 +261,15 @@ def closest_players_html(player_name, player_z, position_cat):
     cards = ""
     for _, r in closest.iterrows():
         c = '#16a34a' if r['z_dist'] < 0.1 else '#2563eb'
-        cards += f"""
-        <div class='pcard' style='border-left-color:{c}'>
-          <div class='pcard-name'>{short_name(r['player'])}</div>
-          <div class='pcard-meta'>
-            {r['team']} &nbsp;&middot;&nbsp; Z: {r['season_z']:+.3f}
-            &nbsp;&middot;&nbsp; &Delta; {r['z_dist']:.3f}
-          </div>
-        </div>"""
-    return f"""
-    <div style='margin-top:0.5rem'>
-      <div class='section-hdr'>3 CLOSEST IN {position_cat.upper()}</div>
-      {cards}
-    </div>
-    """
-
+        cards += (
+            f"<div class='pcard' style='border-left-color:{c}'>"
+            f"<div class='pcard-name'>{short_name(r['player'])}</div>"
+            f"<div class='pcard-meta'>{r['team']} &nbsp;&middot;&nbsp; "
+            f"Z: {r['season_z']:+.3f} &nbsp;&middot;&nbsp; "
+            f"&Delta; {r['z_dist']:.3f}</div></div>"
+        )
+    header = f"<div class='section-hdr'>3 CLOSEST IN {position_cat.upper()}</div>"
+    return f"<div style='margin-top:0.5rem'>{header}{cards}</div>"
 # ══════════════════════════════════════════════════════════════
 # PLOT FUNCTIONS
 # ══════════════════════════════════════════════════════════════
@@ -376,8 +370,10 @@ def plot_line(selected_team):
 
 def plot_zone_bar(selected_team):
     """
-    Grouped bar chart: selected team's defensive / midfield / forward Z
-    vs league average for each zone.
+    Diverging stacked bar chart.
+    Shows team z-score with league average as a reference baseline.
+    If team > league avg: league avg is the base bar, excess stacks on top in green.
+    If team < league avg: team value is the base bar, deficit stacks on top in red.
     """
     league_avg = {
         'Defensive': avg_team_fluidity['avg_defensive_z'].mean(),
@@ -392,35 +388,51 @@ def plot_zone_bar(selected_team):
     }
 
     zones  = ['Defensive', 'Midfield', 'Forward']
-    x      = np.arange(len(zones))
-    width  = 0.35
     colour = TEAM_COLOURS.get(selected_team, '#2563eb')
 
     fig, ax = plt.subplots(figsize=(7, 5))
-    bars_team   = ax.bar(x - width/2, [team_vals[z]   for z in zones],
-                         width, label=TEAM_ABBR.get(selected_team, selected_team),
-                         color=colour, edgecolor='black', linewidth=0.8, alpha=0.9)
-    bars_league = ax.bar(x + width/2, [league_avg[z] for z in zones],
-                         width, label='League Avg',
-                         color='#aaa', edgecolor='black', linewidth=0.8, alpha=0.7)
+
+    for i, zone in enumerate(zones):
+        tv = team_vals[zone]
+        la = league_avg[zone]
+        diff = tv - la
+
+        # base bar = minimum of the two (could be negative)
+        base = min(tv, la)
+
+        # grey bar for league average portion
+        ax.bar(i, la - base, bottom=base,
+               color='#cccccc', edgecolor='black', linewidth=0.7,
+               width=0.5, label='League Avg' if i == 0 else '')
+
+        # stacked portion = the difference
+        if diff > 0:
+            # team is MORE fluid than league avg — stack in team colour
+            ax.bar(i, diff, bottom=la,
+                   color=colour, edgecolor='black', linewidth=0.7,
+                   width=0.5, label=f'{TEAM_ABBR.get(selected_team, selected_team)} above avg' if i == 0 else '',
+                   alpha=0.9)
+        else:
+            # team is LESS fluid — stack deficit in red below league avg
+            ax.bar(i, abs(diff), bottom=tv,
+                   color='#dc2626', edgecolor='black', linewidth=0.7,
+                   width=0.5, alpha=0.7,
+                   label='Below league avg' if i == 0 else '')
+
+        # value labels
+        ax.text(i, tv + (0.02 if tv >= 0 else -0.05),
+                f'{tv:+.2f}', ha='center', va='bottom', fontsize=9, fontweight='bold')
 
     ax.axhline(0, color='black', linewidth=1, linestyle='--', alpha=0.3)
-    ax.set_xticks(x); ax.set_xticklabels(zones, fontsize=10, fontweight='bold')
+    ax.set_xticks(range(len(zones)))
+    ax.set_xticklabels(zones, fontsize=10, fontweight='bold')
     ax.set_ylabel('Average Z-Score', fontsize=10, fontweight='bold')
     ax.set_title('Zone Fluidity vs League Average', fontsize=11, fontweight='bold', pad=8)
-    ax.legend(fontsize=9, frameon=False)
+    ax.legend(fontsize=8, frameon=False)
     ax.grid(axis='y', alpha=0.25)
-
-    # value labels
-    for bar in list(bars_team) + list(bars_league):
-        h = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width()/2,
-                h + (0.01 if h >= 0 else -0.04),
-                f'{h:+.2f}', ha='center', va='bottom', fontsize=8)
-
     plt.tight_layout()
     return fig
-
+ 
 
 def plot_touch_map(player_id, player_name, position_cat):
     """

@@ -585,7 +585,7 @@ with col_bar:
 with col_space:
     st.markdown("""
     <div style='padding:1.2rem 1.4rem;background:#f8f9fa;border:1px solid #e0e0e0;
-                border-radius:8px;font-size:1rem;color:#555;line-height:2;
+                border-radius:8px;font-size:1.25rem;color:#555;line-height:2.25;
                 margin-top:0.5rem;'>
     <b>Zonal Interpretation</b><br>
     Positive Z = More positional variance than league average.<br>

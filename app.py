@@ -407,11 +407,14 @@ def plot_zone_bar(selected_team):
                 color='black', linewidth=2, zorder=4)
 
     # value labels on bars
-    for bar, zone in zip(bars, zones):
+     for bar, zone in zip(bars, zones):
         h = bar.get_height()
+        # position label above bar if positive, below if negative
+        y_pos = h + 0.003 if h >= 0 else h - 0.003
+        va = 'bottom' if h >= 0 else 'top'
         ax.text(bar.get_x() + bar.get_width() / 2,
-                h + (0.01 if h >= 0 else -0.04),
-                f'{h:+.2f}', ha='center', va='bottom',
+                y_pos, f'{h:+.2f}',
+                ha='center', va=va,
                 fontsize=9, fontweight='bold')
 
     ax.axhline(0, color='black', linewidth=1, linestyle='--', alpha=0.3)

@@ -573,9 +573,9 @@ with col_space:
                 margin-top:0.5rem;'>
     Positive Z = More positional variance than league average.<br><br>
     Negative Z = Less positional fluidity than league average.<br><br>
-    <b>Defensive</b> — Centre backs &amp; full-backs<br>
-    <b>Midfield</b> — Central, attacking, defensive &amp; wide midfield<br>
-    <b>Forward</b> — Strikers &amp; wide forwards
+    <b>Defensive</b> — centre backs &amp; full-backs<br>
+    <b>Midfield</b> — central, attacking, defensive &amp; wide midfielders<br>
+    <b>Forward</b> — strikers &amp; wide forwards
     </div>
     """, unsafe_allow_html=True)
 

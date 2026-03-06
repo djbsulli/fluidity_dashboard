@@ -357,7 +357,7 @@ def plot_line(selected_team):
     ax.legend(fontsize=9, frameon=False)
 
     ax.set_ylim(-2, 2)
-    ax.set_xlim(0,38)
+    ax.set_xlim(0,40)
     plt.tight_layout()
     return fig
 

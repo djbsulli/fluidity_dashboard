@@ -534,6 +534,30 @@ st.markdown("<div class='dash-title'>POSITIONAL FLUIDITY DASHBOARD</div>", unsaf
 st.markdown("<div class='dash-sub'>2015-16 Premier League &nbsp;·&nbsp; Positional Variance Analysis</div>",
             unsafe_allow_html=True)
 
+col_sel1, col_sel2 = st.columns(2)
+with col_sel1:
+    selected_team = st.selectbox(
+        "🏟️ Select Team",
+        options=sorted(avg_team_fluidity['team'].unique())
+    )
+
+team_players = (season_player_stats[
+    season_player_stats['team'] == selected_team
+].sort_values(['player', 'season_z'], ascending=[True, False]))
+
+player_options = [
+    (f"{r['player']}  ({r['position_cat']})", r['player'], r['position_cat'])
+    for _, r in team_players.iterrows()
+]
+player_labels = [p[0] for p in player_options]
+
+with col_sel2:
+    selected_label = st.selectbox("👤 Select Player", options=player_labels)
+
+selected_idx      = player_labels.index(selected_label)
+selected_player   = player_options[selected_idx][1]
+selected_position = player_options[selected_idx][2]
+
 # ══════════════════════════════════════════════════════════════
 # SECTION 1 — TEAM VIEW
 # ══════════════════════════════════════════════════════════════

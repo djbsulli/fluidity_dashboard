@@ -35,7 +35,7 @@ st.set_page_config(
 # ── CSS ───────────────────────────────────────────────────────
 st.markdown("""
 <style>
-[data-testid="collapsedControl"] { display: block !important; }
+[data-testid="collapsedControl"] {{ display: block !important; }}
 </style>
 """, unsafe_allow_html=True)
 .dash-title {

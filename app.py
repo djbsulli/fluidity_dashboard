@@ -566,7 +566,7 @@ with st.expander("ℹ️ How are fluidity scores calculated?"):
     to determine how fluid a player's profile is compared to the league average for their position. Only outfield players are used, and all player's required a minimum
     of 15 open play touches to be considered in match analysis.
 
-    ** Player-Level Fluidity Scores (Season)**  
+    **Player-Level Fluidity Scores (Season)**  
     The season-level fluidity scores are an aggregation of all match fluidity scores per player/position. Players appear multiple times when meeting the touch/match thresholds in multiple positions
 
     **Team-Level Fluidity Scores**  

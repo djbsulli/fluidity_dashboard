@@ -440,7 +440,7 @@ def plot_touch_map(player_id, player_name, position_cat):
         pitch.kdeplot(
             player_locs['x'], player_locs['y'],
             ax=ax, cmap='Reds', fill=True,
-            bw_method=0.3, levels=30, thresh=0.02, alpha=0.8
+            bw_method=0.3, levels=20, thresh=0.1, alpha=0.8
         )
 
     player_z = season_player_stats[

@@ -34,11 +34,11 @@ st.set_page_config(
 
 # ── CSS ───────────────────────────────────────────────────────
 st.markdown("""
+st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
-
-html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; }
-
+[data-testid="collapsedControl"] { display: block !important; }
+</style>
+""", unsafe_allow_html=True)
 .dash-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.6rem; letter-spacing: 5px;
